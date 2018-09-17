@@ -139,7 +139,7 @@
     "customLogger": {
       "scheduleLogger": {
         "consoleLevel": "NONE",
-        "file": "/Users/admin/coding/github/egg-admin/logs/ant-admin1/egg-schedule.log"
+        "file": "/Users/admin/coding/github/egg-admin/logs/egg-admin/egg-schedule.log"
       }
     },
     "logrotator": {
@@ -168,14 +168,14 @@
       "mapping": {}
     },
     "env": "local",
-    "name": "ant-admin1",
+    "name": "egg-admin",
     "keys": "<String len: 29>",
     "proxy": false,
     "protocolHeaders": "x-forwarded-proto",
     "ipHeaders": "x-forwarded-for",
     "hostHeaders": "",
     "pkg": {
-      "name": "ant-admin1",
+      "name": "egg-admin",
       "version": "1.0.0",
       "description": "",
       "private": true,
@@ -197,8 +197,8 @@
         "node": ">=8.9.0"
       },
       "scripts": {
-        "start": "egg-scripts start --daemon --title=egg-server-ant-admin1",
-        "stop": "egg-scripts stop --title=egg-server-ant-admin1",
+        "start": "egg-scripts start --daemon --title=egg-server-egg-admin",
+        "stop": "egg-scripts stop --title=egg-server-egg-admin",
         "dev": "egg-bin dev",
         "debug": "egg-bin debug",
         "test": "npm run lint -- --fix && npm run test-local",
@@ -251,7 +251,7 @@
       "returnRawBody": true
     },
     "logger": {
-      "dir": "/Users/admin/coding/github/egg-admin/logs/ant-admin1",
+      "dir": "/Users/admin/coding/github/egg-admin/logs/egg-admin",
       "encoding": "utf8",
       "env": "local",
       "level": "INFO",
@@ -259,7 +259,7 @@
       "disableConsoleAfterReady": false,
       "outputJSON": false,
       "buffer": true,
-      "appLogName": "ant-admin1-web.log",
+      "appLogName": "egg-admin-web.log",
       "coreLogName": "egg-web.log",
       "agentLogName": "egg-agent.log",
       "errorLogName": "common-error.log",
