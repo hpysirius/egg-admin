@@ -134,6 +134,14 @@
     "defaultViewEngine": "/Users/admin/coding/github/egg-admin/node_modules/egg-view/config/config.default.js",
     "mapping": "/Users/admin/coding/github/egg-admin/node_modules/egg-view/config/config.default.js"
   },
+  "mysql": {
+    "default": {
+      "database": "/Users/admin/coding/github/egg-admin/node_modules/egg-mysql/config/config.default.js",
+      "connectionLimit": "/Users/admin/coding/github/egg-admin/node_modules/egg-mysql/config/config.default.js"
+    },
+    "app": "/Users/admin/coding/github/egg-admin/node_modules/egg-mysql/config/config.default.js",
+    "agent": "/Users/admin/coding/github/egg-admin/node_modules/egg-mysql/config/config.default.js"
+  },
   "env": "/Users/admin/coding/github/egg-admin/node_modules/egg/config/config.default.js",
   "name": "/Users/admin/coding/github/egg-admin/node_modules/egg/config/config.default.js",
   "proxy": "/Users/admin/coding/github/egg-admin/node_modules/egg/config/config.default.js",
@@ -147,6 +155,7 @@
     "private": "/Users/admin/coding/github/egg-admin/node_modules/egg/config/config.default.js",
     "dependencies": {
       "egg": "/Users/admin/coding/github/egg-admin/node_modules/egg/config/config.default.js",
+      "egg-mysql": "/Users/admin/coding/github/egg-admin/node_modules/egg/config/config.default.js",
       "egg-scripts": "/Users/admin/coding/github/egg-admin/node_modules/egg/config/config.default.js"
     },
     "devDependencies": {

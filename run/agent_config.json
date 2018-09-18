@@ -137,9 +137,17 @@
       "defaultViewEngine": "",
       "mapping": {}
     },
+    "mysql": {
+      "default": {
+        "database": null,
+        "connectionLimit": 5
+      },
+      "app": true,
+      "agent": false
+    },
     "env": "local",
     "name": "egg-admin",
-    "keys": "<String len: 29>",
+    "keys": "<String len: 28>",
     "proxy": false,
     "protocolHeaders": "x-forwarded-proto",
     "ipHeaders": "x-forwarded-for",
@@ -151,6 +159,7 @@
       "private": true,
       "dependencies": {
         "egg": "^2.2.1",
+        "egg-mysql": "^3.0.0",
         "egg-scripts": "^2.5.0"
       },
       "devDependencies": {
@@ -431,6 +440,17 @@
       "from": "/Users/admin/coding/github/egg-admin/node_modules/egg/config/plugin.js",
       "path": "/Users/admin/coding/github/egg-admin/node_modules/egg-view",
       "version": "2.1.0"
+    },
+    "mysql": {
+      "enable": true,
+      "package": "egg-mysql",
+      "name": "mysql",
+      "dependencies": [],
+      "optionalDependencies": [],
+      "env": [],
+      "from": "/Users/admin/coding/github/egg-admin/config/plugin.js",
+      "path": "/Users/admin/coding/github/egg-admin/node_modules/egg-mysql",
+      "version": "3.0.0"
     }
   }
 }
