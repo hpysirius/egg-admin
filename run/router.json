@@ -15,23 +15,11 @@
   {
     "name": null,
     "methods": [
-      "HEAD",
-      "GET"
+      "POST"
     ],
-    "paramNames": [
-      {
-        "name": "id",
-        "prefix": "/",
-        "delimiter": "/",
-        "optional": false,
-        "repeat": false,
-        "partial": false,
-        "asterisk": false,
-        "pattern": "[^\\/]+?"
-      }
-    ],
-    "path": "/user/:id",
-    "regexp": "/^\\/user\\/((?:[^\\/]+?))(?:\\/(?=$))?$/",
+    "paramNames": [],
+    "path": "/web/user/list",
+    "regexp": "/^\\/web\\/user\\/list(?:\\/(?=$))?$/",
     "stack": [
       "wrappedController"
     ]

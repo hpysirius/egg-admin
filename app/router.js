@@ -6,5 +6,5 @@
 module.exports = app => {
   const { router, controller } = app;
   router.get('/', controller.home.index);
-  router.get('/user/:id', controller.user.info);
+  router.post('/web/user/list', controller.user.select);
 };

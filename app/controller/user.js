@@ -3,10 +3,9 @@
 const Controller = require('egg').Controller;
 
 class UserController extends Controller {
-    async info() {
+    async select() {
       const ctx = this.ctx;
-      const userId = ctx.params.id;
-      const user = await ctx.service.user.find(userId);
+      const user = await ctx.service.user.select();
       ctx.body = user;
     }
 }

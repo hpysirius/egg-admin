@@ -1,26 +1,35 @@
 {
+  "mysql": {
+    "client": {
+      "host": "/Users/admin/coding/github/egg-admin/config/config.default.js",
+      "port": "/Users/admin/coding/github/egg-admin/config/config.default.js",
+      "user": "/Users/admin/coding/github/egg-admin/config/config.default.js",
+      "password": "/Users/admin/coding/github/egg-admin/config/config.default.js",
+      "database": "/Users/admin/coding/github/egg-admin/config/config.default.js"
+    },
+    "app": "/Users/admin/coding/github/egg-admin/config/config.default.js",
+    "agent": "/Users/admin/coding/github/egg-admin/config/config.default.js",
+    "default": {
+      "database": "/Users/admin/coding/github/egg-admin/node_modules/egg-mysql/config/config.default.js",
+      "connectionLimit": "/Users/admin/coding/github/egg-admin/node_modules/egg-mysql/config/config.default.js"
+    }
+  },
   "keys": "/Users/admin/coding/github/egg-admin/config/config.default.js",
   "middleware": "/Users/admin/coding/github/egg-admin/config/config.default.js",
-  "session": {
-    "maxAge": "/Users/admin/coding/github/egg-admin/node_modules/egg-session/config/config.default.js",
-    "key": "/Users/admin/coding/github/egg-admin/node_modules/egg-session/config/config.default.js",
-    "httpOnly": "/Users/admin/coding/github/egg-admin/node_modules/egg-session/config/config.default.js",
-    "encrypt": "/Users/admin/coding/github/egg-admin/node_modules/egg-session/config/config.default.js"
-  },
   "security": {
-    "domainWhiteList": "/Users/admin/coding/github/egg-admin/node_modules/egg-security/config/config.default.js",
-    "protocolWhiteList": "/Users/admin/coding/github/egg-admin/node_modules/egg-security/config/config.default.js",
-    "defaultMiddleware": "/Users/admin/coding/github/egg-admin/node_modules/egg-security/config/config.default.js",
     "csrf": {
-      "enable": "/Users/admin/coding/github/egg-admin/node_modules/egg-security/config/config.default.js",
+      "enable": "/Users/admin/coding/github/egg-admin/config/config.default.js",
+      "ignoreJSON": "/Users/admin/coding/github/egg-admin/config/config.default.js",
       "useSession": "/Users/admin/coding/github/egg-admin/node_modules/egg-security/config/config.default.js",
-      "ignoreJSON": "/Users/admin/coding/github/egg-admin/node_modules/egg-security/config/config.default.js",
       "cookieName": "/Users/admin/coding/github/egg-admin/node_modules/egg-security/config/config.default.js",
       "sessionName": "/Users/admin/coding/github/egg-admin/node_modules/egg-security/config/config.default.js",
       "headerName": "/Users/admin/coding/github/egg-admin/node_modules/egg-security/config/config.default.js",
       "bodyName": "/Users/admin/coding/github/egg-admin/node_modules/egg-security/config/config.default.js",
       "queryName": "/Users/admin/coding/github/egg-admin/node_modules/egg-security/config/config.default.js"
     },
+    "domainWhiteList": "/Users/admin/coding/github/egg-admin/config/config.default.js",
+    "protocolWhiteList": "/Users/admin/coding/github/egg-admin/node_modules/egg-security/config/config.default.js",
+    "defaultMiddleware": "/Users/admin/coding/github/egg-admin/node_modules/egg-security/config/config.default.js",
     "xframe": {
       "enable": "/Users/admin/coding/github/egg-admin/node_modules/egg-security/config/config.default.js",
       "value": "/Users/admin/coding/github/egg-admin/node_modules/egg-security/config/config.default.js"
@@ -58,6 +67,16 @@
       "ipBlackList": "/Users/admin/coding/github/egg-admin/node_modules/egg-security/config/config.default.js",
       "checkAddress": "/Users/admin/coding/github/egg-admin/node_modules/egg-security/config/config.default.js"
     }
+  },
+  "cors": {
+    "origin": "/Users/admin/coding/github/egg-admin/config/config.default.js",
+    "allowMethods": "/Users/admin/coding/github/egg-admin/config/config.default.js"
+  },
+  "session": {
+    "maxAge": "/Users/admin/coding/github/egg-admin/node_modules/egg-session/config/config.default.js",
+    "key": "/Users/admin/coding/github/egg-admin/node_modules/egg-session/config/config.default.js",
+    "httpOnly": "/Users/admin/coding/github/egg-admin/node_modules/egg-session/config/config.default.js",
+    "encrypt": "/Users/admin/coding/github/egg-admin/node_modules/egg-session/config/config.default.js"
   },
   "helper": {
     "shtml": "/Users/admin/coding/github/egg-admin/node_modules/egg-security/config/config.default.js"
@@ -134,14 +153,6 @@
     "defaultViewEngine": "/Users/admin/coding/github/egg-admin/node_modules/egg-view/config/config.default.js",
     "mapping": "/Users/admin/coding/github/egg-admin/node_modules/egg-view/config/config.default.js"
   },
-  "mysql": {
-    "default": {
-      "database": "/Users/admin/coding/github/egg-admin/node_modules/egg-mysql/config/config.default.js",
-      "connectionLimit": "/Users/admin/coding/github/egg-admin/node_modules/egg-mysql/config/config.default.js"
-    },
-    "app": "/Users/admin/coding/github/egg-admin/node_modules/egg-mysql/config/config.default.js",
-    "agent": "/Users/admin/coding/github/egg-admin/node_modules/egg-mysql/config/config.default.js"
-  },
   "env": "/Users/admin/coding/github/egg-admin/node_modules/egg/config/config.default.js",
   "name": "/Users/admin/coding/github/egg-admin/node_modules/egg/config/config.default.js",
   "proxy": "/Users/admin/coding/github/egg-admin/node_modules/egg/config/config.default.js",
@@ -155,6 +166,7 @@
     "private": "/Users/admin/coding/github/egg-admin/node_modules/egg/config/config.default.js",
     "dependencies": {
       "egg": "/Users/admin/coding/github/egg-admin/node_modules/egg/config/config.default.js",
+      "egg-cors": "/Users/admin/coding/github/egg-admin/node_modules/egg/config/config.default.js",
       "egg-mysql": "/Users/admin/coding/github/egg-admin/node_modules/egg/config/config.default.js",
       "egg-scripts": "/Users/admin/coding/github/egg-admin/node_modules/egg/config/config.default.js"
     },

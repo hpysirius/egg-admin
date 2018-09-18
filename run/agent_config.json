@@ -7,13 +7,15 @@
       "encrypt": true
     },
     "security": {
-      "domainWhiteList": [],
+      "domainWhiteList": [
+        "*"
+      ],
       "protocolWhiteList": [],
       "defaultMiddleware": "csrf,hsts,methodnoallow,noopen,nosniff,csp,xssProtection,xframe,dta",
       "csrf": {
-        "enable": true,
+        "enable": false,
         "useSession": false,
-        "ignoreJSON": false,
+        "ignoreJSON": true,
         "cookieName": "csrfToken",
         "sessionName": "csrfToken",
         "headerName": "x-csrf-token",
@@ -143,7 +145,18 @@
         "connectionLimit": 5
       },
       "app": true,
-      "agent": false
+      "agent": false,
+      "client": {
+        "host": "localhost",
+        "port": "3306",
+        "user": "root",
+        "password": "<String len: 12>",
+        "database": "ant_admin"
+      }
+    },
+    "cors": {
+      "origin": "*",
+      "allowMethods": "GET,HEAD,PUT,POST,DELETE,PATCH"
     },
     "env": "local",
     "name": "egg-admin",
@@ -159,6 +172,7 @@
       "private": true,
       "dependencies": {
         "egg": "^2.2.1",
+        "egg-cors": "^2.1.0",
         "egg-mysql": "^3.0.0",
         "egg-scripts": "^2.5.0"
       },
@@ -451,6 +465,17 @@
       "from": "/Users/admin/coding/github/egg-admin/config/plugin.js",
       "path": "/Users/admin/coding/github/egg-admin/node_modules/egg-mysql",
       "version": "3.0.0"
+    },
+    "cors": {
+      "enable": true,
+      "package": "egg-cors",
+      "name": "cors",
+      "dependencies": [],
+      "optionalDependencies": [],
+      "env": [],
+      "from": "/Users/admin/coding/github/egg-admin/config/plugin.js",
+      "path": "/Users/admin/coding/github/egg-admin/node_modules/egg-cors",
+      "version": "2.1.0"
     }
   }
 }

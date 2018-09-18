@@ -13,19 +13,20 @@
       "genid": "<Function anonymous>"
     },
     "security": {
-      "domainWhiteList": [],
+      "domainWhiteList": [
+        "*"
+      ],
       "protocolWhiteList": [],
       "defaultMiddleware": "csrf,hsts,methodnoallow,noopen,nosniff,csp,xssProtection,xframe,dta",
       "csrf": {
-        "enable": true,
+        "enable": false,
         "useSession": false,
-        "ignoreJSON": false,
+        "ignoreJSON": true,
         "cookieName": "csrfToken",
         "sessionName": "csrfToken",
         "headerName": "x-csrf-token",
         "bodyName": "_csrf",
-        "queryName": "_csrf",
-        "matching": "<Function anonymous>"
+        "queryName": "_csrf"
       },
       "xframe": {
         "enable": true,
@@ -104,6 +105,7 @@
         "/Users/admin/coding/github/egg-admin/node_modules/egg-static/config/locales",
         "/Users/admin/coding/github/egg-admin/node_modules/egg-view/config/locales",
         "/Users/admin/coding/github/egg-admin/node_modules/egg-mysql/config/locales",
+        "/Users/admin/coding/github/egg-admin/node_modules/egg-cors/config/locales",
         "/Users/admin/coding/github/egg-admin/node_modules/egg/config/locales",
         "/Users/admin/coding/github/egg-admin/config/locales"
       ],
@@ -183,6 +185,10 @@
         "database": "ant_admin"
       }
     },
+    "cors": {
+      "origin": "*",
+      "allowMethods": "GET,HEAD,PUT,POST,DELETE,PATCH"
+    },
     "env": "local",
     "name": "egg-admin",
     "keys": "<String len: 28>",
@@ -197,6 +203,7 @@
       "private": true,
       "dependencies": {
         "egg": "^2.2.1",
+        "egg-cors": "^2.1.0",
         "egg-mysql": "^3.0.0",
         "egg-scripts": "^2.5.0"
       },
@@ -311,6 +318,7 @@
       "logging": false
     },
     "coreMiddleware": [
+      "cors",
       "meta",
       "siteFile",
       "notfound",
@@ -507,6 +515,17 @@
       "from": "/Users/admin/coding/github/egg-admin/config/plugin.js",
       "path": "/Users/admin/coding/github/egg-admin/node_modules/egg-mysql",
       "version": "3.0.0"
+    },
+    "cors": {
+      "enable": true,
+      "package": "egg-cors",
+      "name": "cors",
+      "dependencies": [],
+      "optionalDependencies": [],
+      "env": [],
+      "from": "/Users/admin/coding/github/egg-admin/config/plugin.js",
+      "path": "/Users/admin/coding/github/egg-admin/node_modules/egg-cors",
+      "version": "2.1.0"
     }
   }
 }
