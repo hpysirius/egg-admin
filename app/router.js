@@ -1,10 +1,7 @@
 'use strict';
 
-/**
- * @param {Egg.Application} app - egg application
- */
 module.exports = app => {
   const { router, controller } = app;
-  router.get('/', controller.home.index);
-  router.post('/web/user/list', controller.user.select);
+  router.resources('home', '/', controller.home);
+  router.post('users', '/web/users/list', controller.users.index);
 };

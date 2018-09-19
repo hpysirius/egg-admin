@@ -104,7 +104,7 @@
         "/Users/admin/coding/github/egg-admin/node_modules/egg-logrotator/config/locales",
         "/Users/admin/coding/github/egg-admin/node_modules/egg-static/config/locales",
         "/Users/admin/coding/github/egg-admin/node_modules/egg-view/config/locales",
-        "/Users/admin/coding/github/egg-admin/node_modules/egg-mysql/config/locales",
+        "/Users/admin/coding/github/egg-admin/node_modules/egg-sequelize/config/locales",
         "/Users/admin/coding/github/egg-admin/node_modules/egg-cors/config/locales",
         "/Users/admin/coding/github/egg-admin/node_modules/egg/config/locales",
         "/Users/admin/coding/github/egg-admin/config/locales"
@@ -170,20 +170,14 @@
       "defaultViewEngine": "",
       "mapping": {}
     },
-    "mysql": {
-      "default": {
-        "database": null,
-        "connectionLimit": 5
-      },
-      "app": true,
-      "agent": false,
-      "client": {
-        "host": "localhost",
-        "port": "3306",
-        "user": "root",
-        "password": "<String len: 12>",
-        "database": "ant_admin"
-      }
+    "sequelize": {
+      "dialect": "mysql",
+      "database": "ant_admin",
+      "host": "localhost",
+      "port": 3306,
+      "username": "root",
+      "password": "<String len: 12>",
+      "user": "root"
     },
     "cors": {
       "origin": "*",
@@ -204,8 +198,9 @@
       "dependencies": {
         "egg": "^2.2.1",
         "egg-cors": "^2.1.0",
-        "egg-mysql": "^3.0.0",
-        "egg-scripts": "^2.5.0"
+        "egg-scripts": "^2.5.0",
+        "egg-sequelize": "^4.1.0",
+        "mysql2": "^1.6.1"
       },
       "devDependencies": {
         "autod": "^3.0.1",
@@ -215,6 +210,7 @@
         "egg-mock": "^3.14.0",
         "eslint": "^4.11.0",
         "eslint-config-egg": "^6.0.0",
+        "sequelize-cli": "^4.1.1",
         "webstorm-disable-index": "^1.2.0"
       },
       "engines": {
@@ -505,16 +501,16 @@
       "path": "/Users/admin/coding/github/egg-admin/node_modules/egg-view",
       "version": "2.1.0"
     },
-    "mysql": {
+    "sequelize": {
       "enable": true,
-      "package": "egg-mysql",
-      "name": "mysql",
+      "package": "egg-sequelize",
+      "name": "sequelize",
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
       "from": "/Users/admin/coding/github/egg-admin/config/plugin.js",
-      "path": "/Users/admin/coding/github/egg-admin/node_modules/egg-mysql",
-      "version": "3.0.0"
+      "path": "/Users/admin/coding/github/egg-admin/node_modules/egg-sequelize",
+      "version": "4.1.0"
     },
     "cors": {
       "enable": true,

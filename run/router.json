@@ -1,25 +1,25 @@
 [
   {
-    "name": null,
+    "name": "homes",
     "methods": [
       "HEAD",
       "GET"
     ],
     "paramNames": [],
-    "path": "/",
+    "path": "",
     "regexp": "/^(?:\\/(?=$))?$/",
     "stack": [
       "wrappedController"
     ]
   },
   {
-    "name": null,
+    "name": "users",
     "methods": [
       "POST"
     ],
     "paramNames": [],
-    "path": "/web/user/list",
-    "regexp": "/^\\/web\\/user\\/list(?:\\/(?=$))?$/",
+    "path": "/web/users/list",
+    "regexp": "/^\\/web\\/users\\/list(?:\\/(?=$))?$/",
     "stack": [
       "wrappedController"
     ]

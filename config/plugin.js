@@ -5,9 +5,13 @@
 
 
 // config/plugin.js
-exports.mysql = {
+// exports.mysql = {
+//     enable: true,
+//     package: 'egg-mysql',
+// };
+exports.sequelize = {
     enable: true,
-    package: 'egg-mysql',
+    package: 'egg-sequelize',
 };
 exports.cors = {
     enable: true,
