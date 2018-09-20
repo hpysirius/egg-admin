@@ -28,15 +28,15 @@ class UserController extends Controller {
 
   async update() {
     const ctx = this.ctx;
-    const id = toInt(ctx.params.id);
+    const { id } = ctx.request.body;
     const user = await ctx.model.User.findById(id);
     if (!user) {
       ctx.status = 404;
       return;
     }
 
-    const { name, age } = ctx.request.body;
-    await user.update({ name, age });
+    const { name, email, age } = ctx.request.body;
+    await user.update({ name, age, email });
     ctx.body = user;
   }
 

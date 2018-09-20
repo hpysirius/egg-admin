@@ -5,4 +5,5 @@ module.exports = app => {
   router.resources('home', '/', controller.home);
   router.post('users', '/web/users/list', controller.users.index);
   router.post('users', '/web/users/add', controller.users.create);
+  router.post('users', '/web/users/edit', controller.users.update);
 };

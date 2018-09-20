@@ -35,5 +35,17 @@
     "stack": [
       "wrappedController"
     ]
+  },
+  {
+    "name": "users",
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/web/users/edit",
+    "regexp": "/^\\/web\\/users\\/edit(?:\\/(?=$))?$/",
+    "stack": [
+      "wrappedController"
+    ]
   }
 ]
