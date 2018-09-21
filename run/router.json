@@ -47,5 +47,17 @@
     "stack": [
       "wrappedController"
     ]
+  },
+  {
+    "name": "users",
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/web/users/del",
+    "regexp": "/^\\/web\\/users\\/del(?:\\/(?=$))?$/",
+    "stack": [
+      "wrappedController"
+    ]
   }
 ]
