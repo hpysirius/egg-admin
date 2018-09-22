@@ -1,7 +1,7 @@
 'use strict';
 
 const Service = require('egg').Service;
-// const _ = require('lodash');
+const { pageSize, pageNumber } = require('../common/common');
 
 class UserService extends Service {
   constructor(ctx) {
@@ -10,6 +10,25 @@ class UserService extends Service {
     this.ResponseCode = ctx.response.ResponseCode;
     this.ServerResponse = ctx.response.ServerResponse;
   }
+  /**
+   * @param {Object} 'user数据'
+   * @return {Object} data
+   */
+  async getUserList({ ps = pageSize, pn = pageNumber }) {
+    const { count, rows } = await this.userModel.findAndCount({
+      order: [[ 'id', 'DESC' ]],
+      limit: Number(ps),
+      offset: Number(pn - 1) * Number(ps),
+    });
+    return this.ServerResponse.createBySuccessData({
+      pn,
+      ps,
+      list: rows,
+      total: count,
+    });
+  }
+
+
   /**
    * @param {Object} user 'user数据'
    * @return {Object} data
@@ -25,6 +44,29 @@ class UserService extends Service {
     const data = await this.userModel.create({ username, age, email, password });
     return data;
   }
+
+  /**
+   * @param {Object} user 'user数据'
+   * @return {Object} data
+   */
+  async update(user) {
+    const result = await this.userModel.findOne({
+      attributes: [ 'username' ],
+      where: {
+        username: user.username,
+        id: { $not: user.id },
+      },
+    });
+    if (result) return this.ServerResponse.createByErrorMsg('用户名已存在, 请更换');
+    const [ updateCount, [ updateRow ]] = await this.userModel.update(user, {
+      where: { id: user.id },
+      individualHooks: true,
+    });
+    if (updateCount > 0) return this.ServerResponse.createBySuccessMsgAndData('更新个人信息成功', updateRow);
+    return this.ServerResponse.createByError('更新个人信息失败');
+  }
+
+
   /**
    * @param {String} field {key}
    * @param {String} value {value}

@@ -17,8 +17,8 @@ class UserController extends Controller {
 
   async list() {
     const ctx = this.ctx;
-    const query = { limit: toInt(ctx.query.limit), offset: toInt(ctx.query.offset) };
-    ctx.body = await ctx.model.User.findAll(query);
+    const respponse = await this.UserService.getUserList(ctx.request.body);
+    ctx.body = respponse;
   }
 
   async login() {
@@ -42,17 +42,16 @@ class UserController extends Controller {
 
   async update() {
     const ctx = this.ctx;
-    const { id } = ctx.request.body;
-    const user = await ctx.model.User.findById(id);
-    if (!user) {
-      ctx.status = 404;
-      return;
-    }
-
+    // const { id } = ctx.request.body;
+    // const user = await ctx.model.User.findById(id);
+    // if (!user) {
+    //   ctx.status = 404;
+    //   return;
+    // }
     const users = ctx.request.body;
-    const password = cmd5(ctx.request.body.password);
-    await user.update({ ...users, password });
-    ctx.body = user;
+    // const password = cmd5(ctx.request.body.password);
+    const response = await this.UserService.update({ ...users });
+    ctx.body = response;
   }
 
   async destroy() {
