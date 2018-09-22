@@ -5,12 +5,13 @@ module.exports = app => {
 
   const User = app.model.define('user', {
     id: { type: INTEGER, primaryKey: true, autoIncrement: true },
-    name: STRING(30),
+    username: STRING(30),
     email: STRING(50),
     age: INTEGER,
+    password: STRING(100),
     created_at: DATE,
     updated_at: DATE,
   });
-  User.sync({alter: true});
+  User.sync({ alter: true });
   return User;
 };

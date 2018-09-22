@@ -1,4 +1,7 @@
+'use strict';
+
 const Controller = require('egg').Controller;
+const { cmd5 } = require('../../utils/index');
 
 function toInt(str) {
   if (typeof str === 'number') return str;
@@ -7,23 +10,34 @@ function toInt(str) {
 }
 
 class UserController extends Controller {
-  async index() {
+  constructor(ctx) {
+    super(ctx);
+    this.UserService = ctx.service.userService;
+  }
+
+  async list() {
     const ctx = this.ctx;
     const query = { limit: toInt(ctx.query.limit), offset: toInt(ctx.query.offset) };
     ctx.body = await ctx.model.User.findAll(query);
   }
 
-  async show() {
+  async login() {
     const ctx = this.ctx;
-    ctx.body = await ctx.model.User.findById(toInt(ctx.params.id));
+    const password = cmd5(ctx.request.body.password);
+    console.log(password);
   }
+
+  // async show() {
+  //   const ctx = this.ctx;
+  //   ctx.body = await ctx.model.User.findById(toInt(ctx.params.id));
+  // }
 
   async create() {
     const ctx = this.ctx;
-    const { name, age, email } = ctx.request.body;
-    const user = await ctx.model.User.create({ name, age, email });
-    ctx.status = 201;
-    ctx.body = user;
+    const users = ctx.request.body;
+    const password = cmd5(ctx.request.body.password);
+    const respponse = await this.UserService.create({ ...users, password});
+    ctx.body = respponse;
   }
 
   async update() {
@@ -35,8 +49,9 @@ class UserController extends Controller {
       return;
     }
 
-    const { name, email, age } = ctx.request.body;
-    await user.update({ name, age, email });
+    const users = ctx.request.body;
+    const password = cmd5(ctx.request.body.password);
+    await user.update({ ...users, password });
     ctx.body = user;
   }
 
@@ -55,4 +70,4 @@ class UserController extends Controller {
 }
 
 module.exports = UserController;
-  
+

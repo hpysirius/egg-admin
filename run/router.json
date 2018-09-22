@@ -13,6 +13,18 @@
     ]
   },
   {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/web/user/login",
+    "regexp": "/^\\/web\\/user\\/login(?:\\/(?=$))?$/",
+    "stack": [
+      "wrappedController"
+    ]
+  },
+  {
     "name": "users",
     "methods": [
       "POST"
