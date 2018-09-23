@@ -2,6 +2,7 @@
 
 const Service = require('egg').Service;
 const { pageSize, pageNumber } = require('../common/common');
+const { cmd5 } = require('../../utils/index');
 
 class UserService extends Service {
   constructor(ctx) {
@@ -16,6 +17,9 @@ class UserService extends Service {
    */
   async getUserList({ ps = pageSize, pn = pageNumber }) {
     const { count, rows } = await this.userModel.findAndCount({
+      where: {
+        isDel: 0,
+      },
       order: [[ 'id', 'DESC' ]],
       limit: Number(ps),
       offset: Number(pn - 1) * Number(ps),
@@ -34,13 +38,15 @@ class UserService extends Service {
    * @return {Object} data
    */
   async create(user) {
-    // 用户名存在报错
-    const validUsernameResponse = await this.checkValid('username', user.username);
-    if (!validUsernameResponse.isSuccess()) return validUsernameResponse;
-    // 邮箱存在报错
-    const validEmailResponse = await this.checkValid('email', user.email);
-    if (!validEmailResponse.isSuccess()) return validEmailResponse;
-    const { username, age, email, password } = user;
+    const validUsername = await this._checkExistColByField('username', user.username);
+    if(validUsername) {
+      return this.ServerResponse.createByErrorMsg('用户名已存在, 请更换');
+    }
+    const validEmail = await this._checkExistColByField('email', user.email);
+    if(validEmail) {
+      return this.ServerResponse.createByErrorMsg('邮箱已经存在，请更换');
+    }
+    const { username, age = null, email, password } = user;
     const data = await this.userModel.create({ username, age, email, password });
     return data;
   }
@@ -50,14 +56,16 @@ class UserService extends Service {
    * @return {Object} data
    */
   async update(user) {
-    const result = await this.userModel.findOne({
-      attributes: [ 'username' ],
-      where: {
-        username: user.username,
-        id: { $not: user.id },
-      },
-    });
-    if (result) return this.ServerResponse.createByErrorMsg('用户名已存在, 请更换');
+    const validUsername = await this._checkExistColByField('username', user.username,
+     { id: { $not: user.id } });
+    if(validUsername) {
+      return this.ServerResponse.createByErrorMsg('用户名已存在, 请更换');
+    }
+    const validEmail = await this._checkExistColByField('email', user.email,
+     { id: { $not: user.id } });
+    if(validEmail) {
+      return this.ServerResponse.createByErrorMsg('邮箱已经存在，请更换');
+    }
     const [ updateCount, [ updateRow ]] = await this.userModel.update(user, {
       where: { id: user.id },
       individualHooks: true,
@@ -66,39 +74,65 @@ class UserService extends Service {
     return this.ServerResponse.createByError('更新个人信息失败');
   }
 
+  /**
+   * @param {Object} user 'user数据'
+   * @return {Object} data
+   */
+  async updatePassword(user) {
+    const result = await this.userModel.findOne({
+      attributes: [ 'id' ],
+      where: { id: user.id, password: cmd5(user.passwordOld) },
+    });
+
+    if (!result) return this.ServerResponse.createByErrorMsg('旧密码错误');
+    const [ rowCount ] = await this.userModel.update({
+      password: cmd5(user.passwordNew),
+    }, {
+      where: {
+        id: user.id,
+      },
+    });
+    if (rowCount > 0) return this.ServerResponse.createBySuccessMsg('修改密码成功');
+    return this.ServerResponse.createByErrorMsg('更新密码失败');
+  }
+
+  /**
+   * 删除用户
+   * @param {Number} id '需要删除的id'
+   * @return {Object} 返回的data
+   */
+  async del(id) {
+    const result = await this.userModel.findOne({
+      attributes: [ 'id' ],
+      where: { id },
+    });
+    if (!result) return this.ServerResponse.createByErrorMsg('找不到该用户');
+    const [ rowCount ] = await this.userModel.update({
+      isDel: 1,
+    }, {
+      where: {
+        id,
+      },
+    });
+    if (rowCount > 0) return this.ServerResponse.createBySuccessMsg('删除用户成功');
+    return this.ServerResponse.createByErrorMsg('删除用户失败');
+  }
 
   /**
    * @param {String} field {key}
    * @param {String} value {value}
    * @return {boolean} {Promise.<boolean>}
    */
-  async _checkExistColByField(field, value) {
+  async _checkExistColByField(field, value, extra = {}) {
     const data = await this.userModel.findOne({
       attributes: [ field ],
-      where: { [field]: value },
+      where: { 
+        ...extra,
+        [field]: value,
+        isDel: 0
+      },
     });
     return !!data;
-  }
-
-  /**
-   * @param {String} type 类型
-   * @param {String} value 检查的值
-   * @return {boolean} {Promise.<boolean>}
-   */
-  async checkValid(type, value) {
-    if (type.trim()) {
-      if (type === 'username') {
-        return await this._checkExistColByField('username', value)
-          ? this.ServerResponse.createByErrorMsg('用户名已存在')
-          : this.ServerResponse.createBySuccessMsg('用户名不存在');
-      }
-      if (type === 'email') {
-        return await this._checkExistColByField('email', value)
-          ? this.ServerResponse.createByErrorMsg('邮箱已存在')
-          : this.ServerResponse.createBySuccessMsg('邮箱不存在');
-      }
-    }
-    return this.ServerResponse.createByErrorMsg('参数错误');
   }
 }
 

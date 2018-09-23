@@ -42,29 +42,22 @@ class UserController extends Controller {
 
   async update() {
     const ctx = this.ctx;
-    // const { id } = ctx.request.body;
-    // const user = await ctx.model.User.findById(id);
-    // if (!user) {
-    //   ctx.status = 404;
-    //   return;
-    // }
     const users = ctx.request.body;
-    // const password = cmd5(ctx.request.body.password);
     const response = await this.UserService.update({ ...users });
     ctx.body = response;
   }
 
-  async destroy() {
+  async del() {
     const ctx = this.ctx;
     const { id } = ctx.request.body;
-    const user = await ctx.model.User.findById(id);
-    if (!user) {
-      ctx.status = 404;
-      return;
-    }
+    const response = await this.UserService.del(id);
+    ctx.body = response;
+  }
 
-    await user.destroy();
-    ctx.status = 200;
+  async updatePassword() {
+    const ctx = this.ctx;
+    const response = await this.UserService.updatePassword(ctx.request.body);
+    ctx.body = response;
   }
 }
 

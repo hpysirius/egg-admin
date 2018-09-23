@@ -11,6 +11,7 @@ module.exports = app => {
     password: STRING(100),
     created_at: DATE,
     updated_at: DATE,
+    isDel: { type: INTEGER, defaultValue: 0 },
   });
   User.sync({ alter: true });
   return User;

@@ -71,5 +71,17 @@
     "stack": [
       "wrappedController"
     ]
+  },
+  {
+    "name": "users",
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/web/users/updatePassword",
+    "regexp": "/^\\/web\\/users\\/updatePassword(?:\\/(?=$))?$/",
+    "stack": [
+      "wrappedController"
+    ]
   }
 ]
