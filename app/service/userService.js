@@ -11,15 +11,40 @@ class UserService extends Service {
     this.ResponseCode = ctx.response.ResponseCode;
     this.ServerResponse = ctx.response.ServerResponse;
   }
+
+  /**
+   * @param {Object} '登陆用户名和密码'
+   * @return {Object} data
+   */
+  async login(user){
+    const result = await this.userModel.findOne({
+      attributes: [ 'id', 'username', 'email' ],
+      where: { 
+        isDel: 0, 
+        username: user.username, 
+        password: cmd5(user.password) 
+      },
+    });
+    if(!result) return this.ServerResponse.createByErrorMsg('用户名或者密码错误');
+    return this.ServerResponse.createBySuccessData(result);
+  }
+
   /**
    * @param {Object} 'user数据'
    * @return {Object} data
    */
-  async getUserList({ ps = pageSize, pn = pageNumber }) {
+  async getUserList({ ps = pageSize, pn = pageNumber, username = '' }) {
+    const whereObj = {
+      isDel: 0
+    };
+    if(username){
+      Object.assign(whereObj, {
+        username
+      })
+    }
     const { count, rows } = await this.userModel.findAndCount({
-      where: {
-        isDel: 0,
-      },
+      attributes: [ 'id', 'username', 'email', 'age', 'created_at', 'updated_at' ],
+      where: whereObj,
       order: [[ 'id', 'DESC' ]],
       limit: Number(ps),
       offset: Number(pn - 1) * Number(ps),

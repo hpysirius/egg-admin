@@ -1,7 +1,6 @@
 'use strict';
 
 const Controller = require('egg').Controller;
-const { cmd5 } = require('../../utils/index');
 
 function toInt(str) {
   if (typeof str === 'number') return str;
@@ -17,14 +16,14 @@ class UserController extends Controller {
 
   async list() {
     const ctx = this.ctx;
-    const respponse = await this.UserService.getUserList(ctx.request.body);
-    ctx.body = respponse;
+    const response = await this.UserService.getUserList(ctx.request.body);
+    ctx.body = response;
   }
 
   async login() {
     const ctx = this.ctx;
-    const password = cmd5(ctx.request.body.password);
-    console.log(password);
+    const response = await this.UserService.login(ctx.request.body);
+    ctx.body = response;
   }
 
   // async show() {
