@@ -13,6 +13,11 @@ class ArticleController extends Controller {
     const response = await this.ArticleService.getCategoryList(ctx.request.body);
     ctx.body = response;
   }
+  async getCategory() {
+    const ctx = this.ctx;
+    const response = await this.ArticleService.getCategory();
+    ctx.body = response;
+  }
   async categoryAdd() {
     const ctx = this.ctx;
     const response = await this.ArticleService.categoryAdd(ctx.request.body);

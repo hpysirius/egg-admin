@@ -11,6 +11,13 @@ class ArticleService extends Service {
     this.ServerResponse = ctx.response.ServerResponse;
   }
 
+  async getCategory() {
+    const data = await this.ArticleCategoryModel.findAll({
+      where: { isDel: 0 },
+    });
+    return this.ServerResponse.createBySuccessData(data);
+  }
+
   /**
    * @param {Object} 'article数据'
    * @return {Object} data

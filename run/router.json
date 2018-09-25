@@ -90,6 +90,18 @@
       "POST"
     ],
     "paramNames": [],
+    "path": "/web/article/getCategory",
+    "regexp": "/^\\/web\\/article\\/getCategory(?:\\/(?=$))?$/",
+    "stack": [
+      "wrappedController"
+    ]
+  },
+  {
+    "name": "article",
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
     "path": "/web/article/category",
     "regexp": "/^\\/web\\/article\\/category(?:\\/(?=$))?$/",
     "stack": [
