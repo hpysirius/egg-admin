@@ -83,5 +83,41 @@
     "stack": [
       "wrappedController"
     ]
+  },
+  {
+    "name": "article",
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/web/article/category",
+    "regexp": "/^\\/web\\/article\\/category(?:\\/(?=$))?$/",
+    "stack": [
+      "wrappedController"
+    ]
+  },
+  {
+    "name": "article",
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/web/article/categoryAdd",
+    "regexp": "/^\\/web\\/article\\/categoryAdd(?:\\/(?=$))?$/",
+    "stack": [
+      "wrappedController"
+    ]
+  },
+  {
+    "name": "article",
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/web/article/categoryEdit",
+    "regexp": "/^\\/web\\/article\\/categoryEdit(?:\\/(?=$))?$/",
+    "stack": [
+      "wrappedController"
+    ]
   }
 ]
