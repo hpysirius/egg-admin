@@ -162,6 +162,18 @@
       "POST"
     ],
     "paramNames": [],
+    "path": "/web/article/edit",
+    "regexp": "/^\\/web\\/article\\/edit(?:\\/(?=$))?$/",
+    "stack": [
+      "wrappedController"
+    ]
+  },
+  {
+    "name": "article",
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
     "path": "/web/article/detail",
     "regexp": "/^\\/web\\/article\\/detail(?:\\/(?=$))?$/",
     "stack": [

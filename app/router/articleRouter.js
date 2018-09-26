@@ -10,5 +10,6 @@ module.exports = app => {
   // 文章
   router.post('article', '/web/article/list', controller.article.getArticleList);
   router.post('article', '/web/article/create', controller.article.articleCreate);
+  router.post('article', '/web/article/edit', controller.article.articleEdit);
   router.post('article', '/web/article/detail', controller.article.articleDetail);
 };

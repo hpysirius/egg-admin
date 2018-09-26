@@ -6,6 +6,7 @@ module.exports = app => {
   const ArticleCategory = app.model.define('article', {
     id: { type: INTEGER, primaryKey: true, autoIncrement: true },
     category_id: INTEGER,
+    author: STRING(20),
     content: TEXT,
     title: STRING(100),
     keywords: STRING(200),
