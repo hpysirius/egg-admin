@@ -145,7 +145,7 @@
       "host": "localhost",
       "port": 3306,
       "username": "root",
-      "password": "<String len: 12>",
+      "password": "<String len: 5>",
       "user": "root"
     },
     "cors": {

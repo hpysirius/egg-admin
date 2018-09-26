@@ -6,23 +6,16 @@ const { pageSize, pageNumber } = require('../common/common');
 class ArticleService extends Service {
   constructor(ctx) {
     super(ctx);
-    this.ArticleCategoryModel = this.ctx.model.ArticleCategory;
+    this.ArticleModel = this.ctx.model.Article;
     this.ResponseCode = ctx.response.ResponseCode;
     this.ServerResponse = ctx.response.ServerResponse;
-  }
-
-  async getCategory() {
-    const data = await this.ArticleCategoryModel.findAll({
-      where: { isDel: 0 },
-    });
-    return this.ServerResponse.createBySuccessData(data);
   }
 
   /**
    * @param {Object} 'article数据'
    * @return {Object} data
    */
-  async getCategoryList({ ps = pageSize, pn = pageNumber, name = '' }) {
+  async getArticleList({ ps = pageSize, pn = pageNumber, name = '' }) {
     const whereObj = {
       isDel: 0,
     };
@@ -31,8 +24,8 @@ class ArticleService extends Service {
         name,
       });
     }
-    const { count, rows } = await this.ArticleCategoryModel.findAndCount({
-      attributes: [ 'id', 'name', 'pid', 'created_at', 'updated_at' ],
+    const { count, rows } = await this.ArticleModel.findAndCount({
+      attributes: [ 'id', 'title', 'category_id', 'created_at', 'updated_at' ],
       where: whereObj,
       order: [[ 'id', 'DESC' ]],
       limit: Number(ps),
@@ -45,28 +38,26 @@ class ArticleService extends Service {
       total: count,
     });
   }
-
   /**
-   * @param {Object} category 'category数据'
+   * @param {Object} article 'article数据'
    * @return {Object} data
    */
-  async categoryAdd(category) {
-    const { name, pid } = category;
-    const data = await this.ArticleCategoryModel.create({ name, pid });
-    return data;
+  async articleCreate(article) {
+    const data = await this.ArticleModel.create(article);
+    return data && this.ServerResponse.createBySuccessMsg('新增成功');
   }
-
   /**
-   * @param {Object} category 'category数据'
+   * @param {Object} article 'article数据'
    * @return {Object} data
    */
-  async categoryEdit(category) {
-    const [ updateCount, [ updateRow ]] = await this.ArticleCategoryModel.update(category, {
-      where: { id: category.id },
-      individualHooks: true,
+  async articleDetail(article) {
+    const result = await this.ArticleModel.findOne({
+      where: {
+        isDel: 0,
+        id: article.id,
+      },
     });
-    if (updateCount > 0) return this.ServerResponse.createBySuccessMsgAndData('更新成功', updateRow);
-    return this.ServerResponse.createByError('更新失败');
+    return result && this.ServerResponse.createBySuccessData(result);
   }
 }
 

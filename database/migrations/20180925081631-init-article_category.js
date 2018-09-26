@@ -9,6 +9,7 @@ module.exports = {
       pid: INTEGER,
       created_at: DATE,
       updated_at: DATE,
+      isDel: { type: INTEGER, defaultValue: 0 },
     });
   },
 

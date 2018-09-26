@@ -11,6 +11,7 @@ module.exports = {
       keywords: STRING(200),
       created_at: DATE,
       updated_at: DATE,
+      isDel: { type: INTEGER, defaultValue: 0 },
     });
   },
   // 在执行数据库降级时调用的函数，删除 articles 表

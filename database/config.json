@@ -1,21 +1,21 @@
 {
   "development": {
     "username": "root",
-    "password": "huanghui0330",
+    "password": "admin",
     "database": "ant_admin",
     "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": "huanghui0330",
+    "password": "admin",
     "database": "ant_admin",
     "host": "localhost",
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
-    "password": "huanghui0330",
+    "password": "admin",
     "database": "ant_admin",
     "host": "localhost",
     "dialect": "mysql"

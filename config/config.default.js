@@ -10,7 +10,7 @@ module.exports = appInfo => {
       user: 'root',
       // 密码
       // password: 'huanghui0330',
-      password: 'huanghui0330',
+      password: 'admin',
       database: 'ant_admin',
     },
     // mysql: {

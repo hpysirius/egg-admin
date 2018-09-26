@@ -8,24 +8,19 @@ class ArticleController extends Controller {
     this.ArticleService = ctx.service.articleService;
   }
 
-  async categoryList() {
+  async getArticleList() {
     const ctx = this.ctx;
-    const response = await this.ArticleService.getCategoryList(ctx.request.body);
+    const response = await this.ArticleService.getArticleList(ctx.request.body);
     ctx.body = response;
   }
-  async getCategory() {
+  async articleCreate() {
     const ctx = this.ctx;
-    const response = await this.ArticleService.getCategory();
+    const response = await this.ArticleService.articleCreate(ctx.request.body);
     ctx.body = response;
   }
-  async categoryAdd() {
+  async articleDetail() {
     const ctx = this.ctx;
-    const response = await this.ArticleService.categoryAdd(ctx.request.body);
-    ctx.body = response;
-  }
-  async categoryEdit() {
-    const ctx = this.ctx;
-    const response = await this.ArticleService.categoryEdit(ctx.request.body);
+    const response = await this.ArticleService.articleDetail(ctx.request.body);
     ctx.body = response;
   }
 }

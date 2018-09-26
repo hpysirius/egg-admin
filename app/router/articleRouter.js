@@ -2,8 +2,13 @@
 
 module.exports = app => {
   const { router, controller } = app;
-  router.post('article', '/web/article/getCategory', controller.article.getCategory);
-  router.post('article', '/web/article/category', controller.article.categoryList);
-  router.post('article', '/web/article/categoryAdd', controller.article.categoryAdd);
-  router.post('article', '/web/article/categoryEdit', controller.article.categoryEdit);
+  // 文章分类
+  router.post('article', '/web/article/getCategory', controller.articleCategory.getCategory);
+  router.post('article', '/web/article/category', controller.articleCategory.categoryList);
+  router.post('article', '/web/article/categoryAdd', controller.articleCategory.categoryAdd);
+  router.post('article', '/web/article/categoryEdit', controller.articleCategory.categoryEdit);
+  // 文章
+  router.post('article', '/web/article/list', controller.article.getArticleList);
+  router.post('article', '/web/article/create', controller.article.articleCreate);
+  router.post('article', '/web/article/detail', controller.article.articleDetail);
 };
