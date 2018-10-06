@@ -179,5 +179,30 @@
     "stack": [
       "wrappedController"
     ]
+  },
+  {
+    "name": "article",
+    "methods": [
+      "HEAD",
+      "GET"
+    ],
+    "paramNames": [],
+    "path": "/blog/article/list",
+    "regexp": "/^\\/blog\\/article\\/list(?:\\/(?=$))?$/",
+    "stack": [
+      "wrappedController"
+    ]
+  },
+  {
+    "name": "article",
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/blog/article/detail",
+    "regexp": "/^\\/blog\\/article\\/detail(?:\\/(?=$))?$/",
+    "stack": [
+      "wrappedController"
+    ]
   }
 ]
