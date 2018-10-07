@@ -12,6 +12,7 @@ module.exports = app => {
   router.post('article', '/web/article/create', controller.article.articleCreate);
   router.post('article', '/web/article/edit', controller.article.articleEdit);
   router.post('article', '/web/article/detail', controller.article.articleDetail);
+  router.post('article', '/web/article/del', controller.article.articleDel);
 
 
   // 文章，页面请求

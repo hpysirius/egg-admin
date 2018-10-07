@@ -60,6 +60,28 @@ module.exports = app => class ArticleService extends Service {
   }
 
   /**
+   * 删除用户
+   * @param {Number} id '需要删除的id'
+   * @return {Object} 返回的data
+   */
+  async del(id) {
+    const result = await this.ArticleModel.findOne({
+      attributes: [ 'id' ],
+      where: { id },
+    });
+    if (!result) return this.ServerResponse.createByErrorMsg('找不到该文章');
+    const [ rowCount ] = await this.ArticleModel.update({
+      isDel: 1,
+    }, {
+      where: {
+        id,
+      },
+    });
+    if (rowCount > 0) return this.ServerResponse.createBySuccessMsg('删除文章成功');
+    return this.ServerResponse.createByErrorMsg('删除文章失败');
+  }
+
+  /**
    * @param {Object} '按月查询文章数据'
    * @return {Object} data
    */

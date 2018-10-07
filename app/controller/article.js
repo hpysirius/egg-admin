@@ -33,6 +33,13 @@ class ArticleController extends Controller {
     const response = await this.ArticleService.articleDetail(ctx.request.body);
     ctx.body = response;
   }
+  async articleDel() {
+    const ctx = this.ctx;
+    const { id } = ctx.request.body;
+    const response = await this.ArticleService.del(id);
+    ctx.body = response;
+  }
+
 }
 
 module.exports = ArticleController;

@@ -183,6 +183,18 @@
   {
     "name": "article",
     "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/web/article/del",
+    "regexp": "/^\\/web\\/article\\/del(?:\\/(?=$))?$/",
+    "stack": [
+      "wrappedController"
+    ]
+  },
+  {
+    "name": "article",
+    "methods": [
       "HEAD",
       "GET"
     ],
