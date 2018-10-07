@@ -28,8 +28,54 @@ module.exports = app => class ArticleService extends Service {
       });
     }
     const { count, rows } = await this.ArticleModel.findAndCount({
+      attributes: [ 'id', 'title', 'author', 'keywords', 'category_id', 'created_at', 'updated_at' ],
+      where: whereObj,
+      order: [[ 'id', 'DESC' ]],
+      limit: Number(ps),
+      offset: Number(pn - 1) * Number(ps),
+      include: {
+        model: this.ArticleCategoryModel,
+        attributes: [ 'name' ],
+        where: {
+          id: app.Sequelize.col('category_id'),
+        },
+      },
+    });
+    return this.ServerResponse.createBySuccessData({
+      pn,
+      ps,
+      list: rows,
+      total: count,
+    });
+  }
+  async getAllArticle() {
+    const data = await this.ArticleModel.findAll({
+      attributes: [ 'id', 'title', 'author', 'category_id', 'created_at', 'updated_at' ],
+      where: {
+        isDel: 0,
+      },
+      order: [[ 'id', 'DESC' ]],
+    });
+    return data;
+  }
+
+  /**
+   * @param {Object} '按月查询文章数据'
+   * @return {Object} data
+   */
+  async getBolgArticleList({ ps = pageSize, pn = pageNumber, name = '' }) {
+    const whereObj = {
+      isDel: 0,
+    };
+    if (name) {
+      Object.assign(whereObj, {
+        name,
+      });
+    }
+    const { count, rows } = await this.ArticleModel.findAndCount({
       attributes: [ 'id', 'title', 'author', 'category_id', 'created_at', 'updated_at' ],
       where: whereObj,
+      // where: app.Sequelize.literal('isDel = 0'),
       order: [[ 'id', 'DESC' ]],
       limit: Number(ps),
       offset: Number(pn - 1) * Number(ps),

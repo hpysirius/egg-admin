@@ -196,6 +196,19 @@
   {
     "name": "article",
     "methods": [
+      "HEAD",
+      "GET"
+    ],
+    "paramNames": [],
+    "path": "/blog/article/allList",
+    "regexp": "/^\\/blog\\/article\\/allList(?:\\/(?=$))?$/",
+    "stack": [
+      "wrappedController"
+    ]
+  },
+  {
+    "name": "article",
+    "methods": [
       "POST"
     ],
     "paramNames": [],

@@ -13,6 +13,11 @@ class ArticleController extends Controller {
     const response = await this.ArticleService.getArticleList(ctx.request.body);
     ctx.body = response;
   }
+  async getBolgArticleList() {
+    const ctx = this.ctx;
+    const response = await this.ArticleService.getAllArticle(ctx.request.body);
+    ctx.body = response;
+  }
   async articleCreate() {
     const ctx = this.ctx;
     const response = await this.ArticleService.articleCreate(ctx.request.body);

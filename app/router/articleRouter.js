@@ -16,5 +16,6 @@ module.exports = app => {
 
   // 文章，页面请求
   router.get('article', '/blog/article/list', controller.article.getArticleList);
+  router.get('article', '/blog/article/allList', controller.article.getBolgArticleList);
   router.post('article', '/blog/article/detail', controller.article.articleDetail);
 };
