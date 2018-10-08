@@ -30,7 +30,7 @@ module.exports = app => class ArticleService extends Service {
     const { count, rows } = await this.ArticleModel.findAndCount({
       attributes: [ 'id', 'title', 'author', 'keywords', 'category_id', 'created_at', 'updated_at' ],
       where: whereObj,
-      order: [[ 'id', 'DESC' ]],
+      order: [[ 'updated_at', 'DESC' ]],
       limit: Number(ps),
       offset: Number(pn - 1) * Number(ps),
       include: {
@@ -54,7 +54,7 @@ module.exports = app => class ArticleService extends Service {
       where: {
         isDel: 0,
       },
-      order: [[ 'id', 'DESC' ]],
+      order: [[ 'updated_at', 'DESC' ]],
     });
     return data;
   }
