@@ -7,7 +7,6 @@ class ArticleController extends Controller {
     super(ctx);
     this.ArticleService = ctx.service.articleService;
   }
-
   async getArticleList() {
     const ctx = this.ctx;
     const response = await this.ArticleService.getArticleList(ctx.request.body);

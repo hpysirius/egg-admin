@@ -85,6 +85,18 @@
     ]
   },
   {
+    "name": "users",
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/web/users/getCaptcha",
+    "regexp": "/^\\/web\\/users\\/getCaptcha(?:\\/(?=$))?$/",
+    "stack": [
+      "wrappedController"
+    ]
+  },
+  {
     "name": "article",
     "methods": [
       "POST"

@@ -8,4 +8,5 @@ module.exports = app => {
   router.post('users', '/web/users/edit', controller.users.update);
   router.post('users', '/web/users/del', controller.users.del);
   router.post('users', '/web/users/updatePassword', controller.users.updatePassword);
+  router.post('users', '/web/users/getCaptcha', controller.users.getCaptcha);
 };

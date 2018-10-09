@@ -1,4 +1,5 @@
 {
+  "keys": "/Users/admin/coding/github/egg-admin/config/config.default.js",
   "sequelize": {
     "dialect": "/Users/admin/coding/github/egg-admin/config/config.default.js",
     "host": "/Users/admin/coding/github/egg-admin/config/config.default.js",
@@ -8,7 +9,6 @@
     "database": "/Users/admin/coding/github/egg-admin/config/config.default.js",
     "username": "/Users/admin/coding/github/egg-admin/node_modules/egg-sequelize/config/config.default.js"
   },
-  "keys": "/Users/admin/coding/github/egg-admin/config/config.default.js",
   "middleware": "/Users/admin/coding/github/egg-admin/config/config.default.js",
   "security": {
     "csrf": {
@@ -67,10 +67,10 @@
     "allowMethods": "/Users/admin/coding/github/egg-admin/config/config.default.js"
   },
   "session": {
-    "maxAge": "/Users/admin/coding/github/egg-admin/node_modules/egg-session/config/config.default.js",
-    "key": "/Users/admin/coding/github/egg-admin/node_modules/egg-session/config/config.default.js",
-    "httpOnly": "/Users/admin/coding/github/egg-admin/node_modules/egg-session/config/config.default.js",
-    "encrypt": "/Users/admin/coding/github/egg-admin/node_modules/egg-session/config/config.default.js"
+    "maxAge": "/Users/admin/coding/github/egg-admin/node_modules/_egg-session@3.1.0@egg-session/config/config.default.js",
+    "key": "/Users/admin/coding/github/egg-admin/node_modules/_egg-session@3.1.0@egg-session/config/config.default.js",
+    "httpOnly": "/Users/admin/coding/github/egg-admin/node_modules/_egg-session@3.1.0@egg-session/config/config.default.js",
+    "encrypt": "/Users/admin/coding/github/egg-admin/node_modules/_egg-session@3.1.0@egg-session/config/config.default.js"
   },
   "helper": {
     "shtml": "/Users/admin/coding/github/egg-admin/node_modules/egg-security/config/config.default.js"
@@ -161,10 +161,14 @@
     "dependencies": {
       "egg": "/Users/admin/coding/github/egg-admin/node_modules/egg/config/config.default.js",
       "egg-cors": "/Users/admin/coding/github/egg-admin/node_modules/egg/config/config.default.js",
+      "egg-redis": "/Users/admin/coding/github/egg-admin/node_modules/egg/config/config.default.js",
       "egg-scripts": "/Users/admin/coding/github/egg-admin/node_modules/egg/config/config.default.js",
       "egg-sequelize": "/Users/admin/coding/github/egg-admin/node_modules/egg/config/config.default.js",
+      "egg-session": "/Users/admin/coding/github/egg-admin/node_modules/egg/config/config.default.js",
+      "egg-session-redis": "/Users/admin/coding/github/egg-admin/node_modules/egg/config/config.default.js",
       "md5": "/Users/admin/coding/github/egg-admin/node_modules/egg/config/config.default.js",
-      "mysql2": "/Users/admin/coding/github/egg-admin/node_modules/egg/config/config.default.js"
+      "mysql2": "/Users/admin/coding/github/egg-admin/node_modules/egg/config/config.default.js",
+      "svg-captcha": "/Users/admin/coding/github/egg-admin/node_modules/egg/config/config.default.js"
     },
     "devDependencies": {
       "autod": "/Users/admin/coding/github/egg-admin/node_modules/egg/config/config.default.js",
