@@ -21,11 +21,12 @@ module.exports = appInfo => {
       enable: false,
       ignoreJSON: true,
     },
-    domainWhiteList: [ 'http://localhost:8003' ],
+    domainWhiteList: [],
   };
 
   config.cors = {
-    origin: 'http://localhost:8003',
+    // origin: '*',
+    origin: 'http://localhost:8000',
     credentials: true,
     allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH',
   };

@@ -24,6 +24,7 @@ class UserController extends Controller {
 
   async login() {
     const ctx = this.ctx;
+    console.log(ctx.session);
     const login_code = ctx.session.login_code;
     let response = {};
     if(login_code !== `${ctx.request.body.captcha}`){
@@ -75,8 +76,7 @@ class UserController extends Controller {
     ctx.session.login_code = Captcha.text; // 把验证码保存到session
     
     // 设置session过期时间
-    ctx.session.maxAge = 1000 * 3600 * 10;
-    console.log(ctx.session);
+    ctx.session.maxAge = 1000 * 60 * 10;
     const response = this.ServerResponse.createBySuccessData(Captcha.data);;
     ctx.body = response
   }

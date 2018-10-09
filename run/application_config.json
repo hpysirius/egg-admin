@@ -13,9 +13,7 @@
       "genid": "<Function anonymous>"
     },
     "security": {
-      "domainWhiteList": [
-        "http://localhost:8003"
-      ],
+      "domainWhiteList": [],
       "protocolWhiteList": [],
       "defaultMiddleware": "csrf,hsts,methodnoallow,noopen,nosniff,csp,xssProtection,xframe,dta",
       "csrf": {
@@ -180,7 +178,7 @@
       "user": "root"
     },
     "cors": {
-      "origin": "http://localhost:8003",
+      "origin": "http://localhost:8000",
       "credentials": true,
       "allowMethods": "GET,HEAD,PUT,POST,DELETE,PATCH"
     },
