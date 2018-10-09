@@ -64,6 +64,7 @@
   },
   "cors": {
     "origin": "/Users/admin/coding/github/egg-admin/config/config.default.js",
+    "credentials": "/Users/admin/coding/github/egg-admin/config/config.default.js",
     "allowMethods": "/Users/admin/coding/github/egg-admin/config/config.default.js"
   },
   "session": {

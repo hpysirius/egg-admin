@@ -14,29 +14,6 @@ module.exports = appInfo => {
     password: 'admin',
     database: 'ant_admin',
   };
-  // config.redis = {
-  //   client: {
-  //     port: 6379, // Redis port
-  //     host: '127.0.0.1', // Redis host
-  //     password: 'foobared',
-  //     db: 0,
-  //   },
-  //   agent: true,
-  // };
-  // config.sessionRedis = {
-  //   key: 'EGG_SESSION',
-  //   maxAge: 24 * 3600 * 1000,
-  //   httpOnly: true,
-  //   encrypt: false,
-  // };
-
-  // config.session = {
-  //   key: 'EGG_SESS',
-  //   maxAge: 24 * 3600 * 1000, // 1 天
-  //   httpOnly: true,
-  //   encrypt: true,
-  // };
-  // add your config here
   config.middleware = [];
 
   config.security = {
@@ -44,11 +21,12 @@ module.exports = appInfo => {
       enable: false,
       ignoreJSON: true,
     },
-    domainWhiteList: [ '*' ],
+    domainWhiteList: [ 'http://localhost:8003' ],
   };
 
   config.cors = {
-    origin: '*',
+    origin: 'http://localhost:8003',
+    credentials: true,
     allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH',
   };
   return config;

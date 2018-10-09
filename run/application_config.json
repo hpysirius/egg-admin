@@ -14,7 +14,7 @@
     },
     "security": {
       "domainWhiteList": [
-        "*"
+        "http://localhost:8003"
       ],
       "protocolWhiteList": [],
       "defaultMiddleware": "csrf,hsts,methodnoallow,noopen,nosniff,csp,xssProtection,xframe,dta",
@@ -180,7 +180,8 @@
       "user": "root"
     },
     "cors": {
-      "origin": "*",
+      "origin": "http://localhost:8003",
+      "credentials": true,
       "allowMethods": "GET,HEAD,PUT,POST,DELETE,PATCH"
     },
     "env": "local",

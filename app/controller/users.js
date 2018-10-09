@@ -24,16 +24,15 @@ class UserController extends Controller {
 
   async login() {
     const ctx = this.ctx;
-    console.log(ctx.session);
     const login_code = ctx.session.login_code;
-    const response = await this.UserService.login(ctx.request.body);
+    let response = {};
+    if(login_code !== `${ctx.request.body.captcha}`){
+      response = this.ServerResponse.createByErrorMsg('验证码错误');
+    }else{  
+      response = await this.UserService.login(ctx.request.body);
+    }
     ctx.body = response;
   }
-
-  // async show() {
-  //   const ctx = this.ctx;
-  //   ctx.body = await ctx.model.User.findById(toInt(ctx.params.id));
-  // }
 
   async create() {
     const ctx = this.ctx;
