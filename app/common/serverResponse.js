@@ -3,8 +3,9 @@
 const { SUCCESS, ERROR } = require('./responseCode');
 
 module.exports = class ServerResponse {
-  constructor(status, msg, data) {
+  constructor(status, msg, data, code) {
     this.status = status;
+    this.code = code;
     this.msg = msg;
     this.data = data;
   }
@@ -50,6 +51,6 @@ module.exports = class ServerResponse {
   }
 
   static createByErrorCodeMsg(errorCode, errorMsg) {
-    return new ServerResponse(errorCode, errorMsg, null);
+    return new ServerResponse(ERROR, errorMsg, {}, errorCode);
   }
 };

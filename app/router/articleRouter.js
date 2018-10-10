@@ -2,17 +2,18 @@
 
 module.exports = app => {
   const { router, controller } = app;
+  const checkLogin = app.middleware.checkLogin({ checkAdmin: true });
   // 文章分类
-  router.post('article', '/web/article/getCategory', controller.articleCategory.getCategory);
-  router.post('article', '/web/article/category', controller.articleCategory.categoryList);
-  router.post('article', '/web/article/categoryAdd', controller.articleCategory.categoryAdd);
-  router.post('article', '/web/article/categoryEdit', controller.articleCategory.categoryEdit);
+  router.post('article', '/web/article/getCategory', checkLogin, controller.articleCategory.getCategory);
+  router.post('article', '/web/article/category', checkLogin, controller.articleCategory.categoryList);
+  router.post('article', '/web/article/categoryAdd', checkLogin, controller.articleCategory.categoryAdd);
+  router.post('article', '/web/article/categoryEdit', checkLogin, controller.articleCategory.categoryEdit);
   // 文章
-  router.post('article', '/web/article/list', controller.article.getArticleList);
-  router.post('article', '/web/article/create', controller.article.articleCreate);
-  router.post('article', '/web/article/edit', controller.article.articleEdit);
-  router.post('article', '/web/article/detail', controller.article.articleDetail);
-  router.post('article', '/web/article/del', controller.article.articleDel);
+  router.post('article', '/web/article/list', checkLogin, controller.article.getArticleList);
+  router.post('article', '/web/article/create', checkLogin, controller.article.articleCreate);
+  router.post('article', '/web/article/edit', checkLogin, controller.article.articleEdit);
+  router.post('article', '/web/article/detail', checkLogin, controller.article.articleDetail);
+  router.post('article', '/web/article/del', checkLogin, controller.article.articleDel);
 
 
   // 文章，页面请求

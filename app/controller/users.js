@@ -24,15 +24,22 @@ class UserController extends Controller {
 
   async login() {
     const ctx = this.ctx;
-    console.log(ctx.session);
     const login_code = ctx.session.login_code;
     let response = {};
     if(login_code !== `${ctx.request.body.captcha}`){
       response = this.ServerResponse.createByErrorMsg('验证码错误');
     }else{  
       response = await this.UserService.login(ctx.request.body);
+      if (response.isSuccess()) {
+        ctx.session.currentUser = response.getData();
+      }
     }
     ctx.body = response;
+  }
+   // 登出
+  async logout() {
+    this.ctx.session = null;
+    this.ctx.body = this.ServerResponse.createBySuccess();
   }
 
   async create() {
