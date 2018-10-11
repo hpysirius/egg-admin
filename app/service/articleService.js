@@ -17,14 +17,16 @@ module.exports = app => class ArticleService extends Service {
    * @param {Object} 'article数据'
    * @return {Object} data
    */
-  async getArticleList({ ps = pageSize, pn = pageNumber, name = '' }) {
+  async getArticleList({ ps = pageSize, pn = pageNumber, title = '' }) {
     console.log(app.Sequelize.col('category_id'));
     const whereObj = {
       isDel: 0,
     };
-    if (name) {
+    if (title) {
       Object.assign(whereObj, {
-        name,
+        title: {
+          $like: `%${title}%`,
+        },
       });
     }
     const { count, rows } = await this.ArticleModel.findAndCount({
