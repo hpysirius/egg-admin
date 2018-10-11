@@ -32,6 +32,8 @@ class UserController extends Controller {
       response = await this.UserService.login(ctx.request.body);
       if (response.isSuccess()) {
         ctx.session.currentUser = response.getData();
+        // 设置session过期时间
+        ctx.session.maxAge = 1000 * 3600 * 10;
       }
     }
     ctx.body = response;

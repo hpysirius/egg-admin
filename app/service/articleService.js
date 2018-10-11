@@ -146,6 +146,13 @@ module.exports = app => class ArticleService extends Service {
         isDel: 0,
         id: article.id,
       },
+      include: {
+        model: this.ArticleCategoryModel,
+        attributes: [ 'name' ],
+        where: {
+          id: app.Sequelize.col('category_id'),
+        },
+      },
     });
     return result && this.ServerResponse.createBySuccessData(result);
   }
