@@ -2,6 +2,7 @@
 
 const Controller = require('egg').Controller;
 var svgCaptcha = require('svg-captcha');
+const { cmd5 } = require('../../utils/index');
 
 function toInt(str) {
   if (typeof str === 'number') return str;

@@ -233,8 +233,7 @@
   {
     "name": "article",
     "methods": [
-      "HEAD",
-      "GET"
+      "POST"
     ],
     "paramNames": [],
     "path": "/blog/article/list",

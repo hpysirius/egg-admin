@@ -12,7 +12,7 @@ class ArticleController extends Controller {
     const response = await this.ArticleService.getArticleList(ctx.request.body);
     ctx.body = response;
   }
-  async getBolgArticleList() {
+  async getBlogAllArticleList() {
     const ctx = this.ctx;
     const response = await this.ArticleService.getAllArticle(ctx.request.body);
     ctx.body = response;
