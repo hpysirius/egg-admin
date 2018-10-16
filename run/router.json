@@ -266,5 +266,42 @@
     "stack": [
       "wrappedController"
     ]
+  },
+  {
+    "name": "pic",
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/web/pic/list",
+    "regexp": "/^\\/web\\/pic\\/list(?:\\/(?=$))?$/",
+    "stack": [
+      "checkLogin",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": "pic",
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/web/pic/add",
+    "regexp": "/^\\/web\\/pic\\/add(?:\\/(?=$))?$/",
+    "stack": [
+      "wrappedController"
+    ]
+  },
+  {
+    "name": "pic",
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/web/file/upload",
+    "regexp": "/^\\/web\\/file\\/upload(?:\\/(?=$))?$/",
+    "stack": [
+      "wrappedController"
+    ]
   }
 ]

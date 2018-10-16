@@ -5,4 +5,5 @@ module.exports = app => {
   router.resources('home', '/', controller.home);
   require('./router/userRouter')(app);
   require('./router/articleRouter')(app);
+  require('./router/picRouter')(app);
 };

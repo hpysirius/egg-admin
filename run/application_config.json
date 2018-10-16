@@ -90,7 +90,7 @@
     "i18n": {
       "defaultLocale": "en_US",
       "dirs": [
-        "/Users/admin/coding/github/egg-admin/node_modules/_egg-session@3.1.0@egg-session/config/locales",
+        "/Users/admin/coding/github/egg-admin/node_modules/egg-session/config/locales",
         "/Users/admin/coding/github/egg-admin/node_modules/egg-security/config/locales",
         "/Users/admin/coding/github/egg-admin/node_modules/egg-jsonp/config/locales",
         "/Users/admin/coding/github/egg-admin/node_modules/egg-onerror/config/locales",
@@ -369,7 +369,7 @@
       "optionalDependencies": [],
       "env": [],
       "from": "/Users/admin/coding/github/egg-admin/config/plugin.js",
-      "path": "/Users/admin/coding/github/egg-admin/node_modules/_egg-session@3.1.0@egg-session",
+      "path": "/Users/admin/coding/github/egg-admin/node_modules/egg-session",
       "version": "3.1.0"
     },
     "security": {

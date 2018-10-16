@@ -68,10 +68,10 @@
     "allowMethods": "/Users/admin/coding/github/egg-admin/config/config.default.js"
   },
   "session": {
-    "maxAge": "/Users/admin/coding/github/egg-admin/node_modules/_egg-session@3.1.0@egg-session/config/config.default.js",
-    "key": "/Users/admin/coding/github/egg-admin/node_modules/_egg-session@3.1.0@egg-session/config/config.default.js",
-    "httpOnly": "/Users/admin/coding/github/egg-admin/node_modules/_egg-session@3.1.0@egg-session/config/config.default.js",
-    "encrypt": "/Users/admin/coding/github/egg-admin/node_modules/_egg-session@3.1.0@egg-session/config/config.default.js"
+    "maxAge": "/Users/admin/coding/github/egg-admin/node_modules/egg-session/config/config.default.js",
+    "key": "/Users/admin/coding/github/egg-admin/node_modules/egg-session/config/config.default.js",
+    "httpOnly": "/Users/admin/coding/github/egg-admin/node_modules/egg-session/config/config.default.js",
+    "encrypt": "/Users/admin/coding/github/egg-admin/node_modules/egg-session/config/config.default.js"
   },
   "helper": {
     "shtml": "/Users/admin/coding/github/egg-admin/node_modules/egg-security/config/config.default.js"

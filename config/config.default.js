@@ -7,10 +7,10 @@ module.exports = appInfo => {
   config.sequelize = {
     dialect: 'mysql',
     host: 'localhost',
+    // host: '192.168.43.97',
     port: 3306,
     user: 'root',
     // 密码
-    // password: 'huanghui0330',
     password: 'admin',
     database: 'ant_admin',
   };
@@ -23,13 +23,13 @@ module.exports = appInfo => {
     },
     domainWhiteList: [],
   };
-
   config.cors = {
     // origin: '*',
     origin: 'http://localhost:8000',
     credentials: true,
     allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH',
   };
+
   return config;
 };
 
