@@ -3,5 +3,13 @@
     "node": true,
     "es6": true
   },
-  "extends": "eslint-config-egg"
+  "extends": "eslint-config-egg",
+  "parserOptions": {
+    "ecmaFeatures": {
+        "experimentalObjectRestSpread": true
+    }
+  },
+  "rules": {
+    "valid-jsdoc": 0
+  }
 }

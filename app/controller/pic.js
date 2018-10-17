@@ -20,6 +20,16 @@ class PicController extends Controller {
     const response = await this.PicService.picCreate(ctx.request.body);
     ctx.body = response;
   }
+  async picEdit() {
+    const ctx = this.ctx;
+    const response = await this.PicService.picEdit(ctx.request.body);
+    ctx.body = response;
+  }
+  async getDetail() {
+    const ctx = this.ctx;
+    const response = await this.PicService.getDetail(ctx.request.body);
+    ctx.body = response;
+  }
   async upload() {
     const ctx = this.ctx;
     const stream = await ctx.getFileStream();

@@ -289,6 +289,33 @@
     "path": "/web/pic/add",
     "regexp": "/^\\/web\\/pic\\/add(?:\\/(?=$))?$/",
     "stack": [
+      "checkLogin",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": "pic",
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/web/pic/edit",
+    "regexp": "/^\\/web\\/pic\\/edit(?:\\/(?=$))?$/",
+    "stack": [
+      "checkLogin",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": "pic",
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/web/pic/detail",
+    "regexp": "/^\\/web\\/pic\\/detail(?:\\/(?=$))?$/",
+    "stack": [
+      "checkLogin",
       "wrappedController"
     ]
   },
