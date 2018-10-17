@@ -38,7 +38,7 @@ class PicController extends Controller {
     // 管道读写操作：接收流.管道写入('目标写入流')
     stream.pipe(writerStream);
     const response = this.ServerResponse.createBySuccessData({
-      url: `public/upload/${stream.filename}`,
+      url: `/public/upload/${stream.filename}`,
     });
     ctx.body = response;
   }
