@@ -17,7 +17,7 @@ module.exports = app => class ArticleService extends Service {
    * @param {Object} 'article数据'
    * @return {Object} data
    */
-  async getArticleList({ ps = pageSize, pn = pageNumber, title = '' }) {
+  async getArticleList({ ps = pageSize, pn = pageNumber, title = '', category_id = '' }) {
     console.log(app.Sequelize.col('category_id'));
     const whereObj = {
       isDel: 0,
@@ -27,6 +27,11 @@ module.exports = app => class ArticleService extends Service {
         title: {
           $like: `%${title}%`,
         },
+      });
+    }
+    if (category_id) {
+      Object.assign(whereObj, {
+        category_id,
       });
     }
     const { count, rows } = await this.ArticleModel.findAndCount({
